@@ -190,6 +190,12 @@
   .pkgline { margin: 0; font-size: 14px; color: var(--muted); }
   .pkgline b { color: var(--text); }
   .pkgline span { font-size: 13px; }
+  /* apply box: form on the left, his "trade offer" photo on the right sitting on the box's bottom edge (desktop only) */
+  .coach-photo { display: none; }
+  @media (min-width: 901px) {
+    .apply { display: grid; grid-template-columns: 1fr 340px; column-gap: 28px; overflow: hidden; }
+    .coach-photo { display: block; align-self: end; width: 340px; height: auto; margin-bottom: -20px; }
+  }
   .eyebrow { margin: 0 0 10px; color: var(--accent); font-weight: 600; font-size: 13px; letter-spacing: .1em; text-transform: uppercase; }
   .btn.big { padding: 13px 20px; font-size: 15px; }
   .anchor { margin: 12px 0 0; color: var(--muted); font-size: 14px; }
@@ -311,27 +317,30 @@
   </div>
 
   <div class="card apply" id="apply">
-    <h3>Apply for coaching</h3>
-    <p>Takes a minute. I'll DM you on Discord to set a time; nothing is paid until we've talked.</p>
-    <form id="applyform" novalidate>
-      <div class="frow">
-        <label>Discord username *<input name="discord" required maxlength="40" placeholder="yourname" autocomplete="off"></label>
-        <label>OP.GG link *<input name="opgg" required maxlength="200" placeholder="https://op.gg/lol/summoners/..." inputmode="url"></label>
-      </div>
-      <div class="frow">
-        <label>Current rank<select name="rank">
-          <option value="">Pick one</option><option>Iron</option><option>Bronze</option><option>Silver</option><option>Gold</option>
-          <option>Platinum</option><option>Emerald</option><option>Diamond</option><option>Master+</option></select></label>
-        <label>Main champ or role<input name="champ" maxlength="80" placeholder="Kai'Sa / ADC"></label>
-      </div>
-      <input type="hidden" name="package" value="1 hour (40 EUR)">
-      <label>What do you want to fix?<textarea name="goal" maxlength="1000" rows="3" placeholder="e.g. I win lane but lose the game, I die in every teamfight..."></textarea></label>
-      <input class="hp" name="website" tabindex="-1" autocomplete="off" aria-hidden="true">
-      <p class="pkgline">Package: <b id="pkgline">Coaching session (1 hour) · 40 €</b> <span>(change it above)</span></p>
-      <button class="btn primary big" type="submit">Apply</button>
-      <p class="formmsg" role="status" aria-live="polite"></p>
-    </form>
-    <p class="alt">Rather just talk? Join the <a href="https://discord.gg/yXxABBHcGC" target="_blank" rel="noopener">Discord</a> and DM <b>collion</b>.</p>
+    <div class="apply-body">
+      <h3>Apply for coaching</h3>
+      <p>Takes a minute. I'll DM you on Discord to set a time; nothing is paid until we've talked.</p>
+      <form id="applyform" novalidate>
+        <div class="frow">
+          <label>Discord username *<input name="discord" required maxlength="40" placeholder="yourname" autocomplete="off"></label>
+          <label>OP.GG link *<input name="opgg" required maxlength="200" placeholder="https://op.gg/lol/summoners/..." inputmode="url"></label>
+        </div>
+        <div class="frow">
+          <label>Current rank<select name="rank">
+            <option value="">Pick one</option><option>Iron</option><option>Bronze</option><option>Silver</option><option>Gold</option>
+            <option>Platinum</option><option>Emerald</option><option>Diamond</option><option>Master+</option></select></label>
+          <label>Main champ or role<input name="champ" maxlength="80" placeholder="Kai'Sa / ADC"></label>
+        </div>
+        <input type="hidden" name="package" value="1 hour (40 EUR)">
+        <label>What do you want to fix?<textarea name="goal" maxlength="1000" rows="3" placeholder="e.g. I win lane but lose the game, I die in every teamfight..."></textarea></label>
+        <input class="hp" name="website" tabindex="-1" autocomplete="off" aria-hidden="true">
+        <p class="pkgline">Package: <b id="pkgline">Coaching session (1 hour) · 40 €</b> <span>(change it above)</span></p>
+        <button class="btn primary big" type="submit">Apply</button>
+        <p class="formmsg" role="status" aria-live="polite"></p>
+      </form>
+      <p class="alt">Rather just talk? Join the <a href="https://discord.gg/yXxABBHcGC" target="_blank" rel="noopener">Discord</a> and DM <b>collion</b>.</p>
+    </div>
+    <img class="coach-photo" src="img/coach.webp" alt="Collion" width="741" height="748" loading="lazy">
   </div>
 </section>
 
