@@ -1,0 +1,221 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Collion: Rank 1 Kai'Sa</title>
+<meta name="description" content="Collion's Kai'Sa builds and kiting setup in one page, his guide videos, and 1-on-1 coaching from a Challenger Kai'Sa one-trick.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0d0b14; --panel: #17131f; --line: #2a2336; --text: #ece8f4; --muted: #a59cb8;
+    --accent: #c14bff; --accent2: #ff4fb8; --gold: #f2b84b;
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body { margin: 0; background: var(--bg); color: var(--text); font: 16px/1.55 Inter, system-ui, sans-serif; }
+  a { color: var(--accent); }
+  .wrap { max-width: 960px; margin: 0 auto; padding: 0 16px; }
+  nav { position: sticky; top: 0; z-index: 5; background: rgba(13,11,20,.88); backdrop-filter: blur(8px); border-bottom: 1px solid var(--line); }
+  nav .wrap { display: flex; gap: 18px; align-items: center; height: 52px; overflow-x: auto; white-space: nowrap; }
+  nav b { margin-right: auto; letter-spacing: .02em; }
+  nav a { color: var(--muted); text-decoration: none; font-size: 14px; }
+  nav a:hover { color: var(--text); }
+  header { padding: 64px 0 40px; background: radial-gradient(800px 360px at 20% 0%, rgba(193,75,255,.22), transparent 70%); }
+  h1 { font-size: clamp(34px, 7vw, 56px); line-height: 1.05; margin: 0 0 14px; font-weight: 800; }
+  h1 span { background: linear-gradient(90deg, var(--accent), var(--accent2)); -webkit-background-clip: text; background-clip: text; color: transparent; }
+  .lede { color: var(--muted); font-size: 18px; max-width: 620px; margin: 0 0 24px; }
+  .btns { display: flex; flex-wrap: wrap; gap: 10px; }
+  .btn { display: inline-block; padding: 10px 16px; border-radius: 10px; border: 1px solid var(--line); background: var(--panel); color: var(--text); text-decoration: none; font-weight: 600; font-size: 14px; }
+  .btn.primary { background: linear-gradient(90deg, var(--accent), var(--accent2)); border: 0; color: #fff; }
+  section { padding: 48px 0; border-top: 1px solid var(--line); }
+  h2 { font-size: 28px; margin: 0 0 6px; }
+  .sub { color: var(--muted); margin: 0 0 24px; }
+  .card { background: var(--panel); border: 1px solid var(--line); border-radius: 14px; padding: 20px; margin-bottom: 14px; }
+  .card h3 { margin: 0 0 4px; font-size: 19px; }
+  .when { color: var(--gold); font-weight: 600; margin: 0 0 12px; font-size: 15px; }
+  .row { display: block; height: 48px; width: auto; max-width: 100%; border-radius: 6px; margin: 6px 0; }
+  .label { font-size: 12px; text-transform: uppercase; letter-spacing: .08em; color: var(--muted); margin-top: 10px; }
+  .card p { margin: 8px 0 0; color: var(--muted); font-size: 15px; }
+  .tldr { list-style: none; padding: 0; margin: 0; display: grid; gap: 8px; }
+  .tldr li { background: var(--panel); border: 1px solid var(--line); border-radius: 10px; padding: 12px 14px; }
+  .tldr b { color: var(--text); }
+  ol.tldr { list-style: decimal inside; }
+  .tldr li:has(a.jump) { padding: 0; }
+  a.jump { display: flex; align-items: center; gap: 12px; padding: 12px 14px; color: var(--muted); text-decoration: none; border-radius: 10px; transition: background .15s, color .15s; }
+  a.jump:hover, a.jump:focus-visible { background: #211a2d; color: var(--text); }
+  a.jump b { color: var(--text); }
+  .txt { flex: 1; min-width: 0; }
+  .arrow { color: var(--accent); flex: none; }
+  .build { scroll-margin-top: 64px; }
+  .build:target { border-color: var(--accent); box-shadow: 0 0 0 1px var(--accent); }
+  ol.tldr li::marker { color: var(--accent); font-weight: 800; }
+  .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 14px; }
+  .video { position: relative; aspect-ratio: 16/9; border-radius: 12px; overflow: hidden; border: 1px solid var(--line); background: #000; }
+  .video iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+  figure.vid { margin: 0; }
+  figcaption { margin-top: 8px; font-size: 14px; color: var(--muted); }
+  figcaption b { color: var(--text); }
+  kbd { background: #241d31; border: 1px solid var(--line); border-bottom-width: 2px; border-radius: 5px; padding: 1px 7px; font: 600 13px Inter, sans-serif; color: var(--text); }
+  footer { padding: 32px 0 48px; color: var(--muted); font-size: 13px; border-top: 1px solid var(--line); }
+  @media (max-width: 520px) { .row { height: 38px; } header { padding-top: 40px; } }
+</style>
+</head>
+<body>
+<nav><div class="wrap">
+  <b>Collion</b>
+  <a href="#builds">Builds</a>
+  <a href="#kiting">Kiting</a>
+  <a href="#videos">Guides</a>
+  <a href="#coaching">Coaching</a>
+</div></nav>
+
+<header><div class="wrap">
+  <h1>Rank 1 <span>Kai'Sa</span> one-trick</h1>
+  <p class="lede">Challenger ADC and the world's #1 Kai'Sa one-trick on onetricks.gg. Every build I use and my kiting setup, in short form. The full guides are below. Want help with your own games? I coach.</p>
+  <div class="btns">
+    <a class="btn primary" href="#coaching">Get coached</a>
+    <a class="btn" href="https://twitch.tv/collionlol" target="_blank" rel="noopener">Twitch</a>
+    <a class="btn" href="https://www.youtube.com/@collionlol" target="_blank" rel="noopener">YouTube</a>
+    <a class="btn" href="https://www.instagram.com/collionlol" target="_blank" rel="noopener">Instagram</a>
+    <a class="btn" href="https://www.tiktok.com/@collionlol" target="_blank" rel="noopener">TikTok</a>
+    <a class="btn" href="https://discord.gg/yXxABBHcGC" target="_blank" rel="noopener">Discord</a>
+  </div>
+</div></header>
+
+<main class="wrap">
+
+<section id="builds">
+  <h2>My 6 builds: when to go each</h2>
+  <p class="sub">Season 16. Full explanation in the <a href="https://youtu.be/3JK41BjXKt8" target="_blank" rel="noopener">build guide</a>.</p>
+
+  <ul class="tldr" style="margin-bottom:28px">
+    <li><a class="jump" href="#build1"><span class="txt"><b>Default:</b> Statikk, Rageblade, Terminus.</span><span class="arrow">&rarr;</span></a></li>
+    <li><a class="jump" href="#build2"><span class="txt"><b>Can't fight in auto range, or they have lots of squishies:</b> Nashor's or Dusk and Dawn instead of Terminus.</span><span class="arrow">&rarr;</span></a></li>
+    <li><a class="jump" href="#build3"><span class="txt"><b>AD into 3+ melees:</b> Kraken crit with Runaan's.</span><span class="arrow">&rarr;</span></a></li>
+    <li><a class="jump" href="#build4"><span class="txt"><b>AD to hunt someone down, or into a hypercarry:</b> Kraken crit with Fiendhunter and Lord Dominik's.</span><span class="arrow">&rarr;</span></a></li>
+    <li><a class="jump" href="#build5"><span class="txt"><b>One fed target that has to die:</b> full on-hit.</span><span class="arrow">&rarr;</span></a></li>
+    <li><a class="jump" href="#build6"><span class="txt"><b>Solo lane, scaling matchup:</b> Manamune.</span><span class="arrow">&rarr;</span></a></li>
+  </ul>
+
+  <div class="card">
+    <h3>Runes &amp; start</h3>
+    <p style="margin-top:0">Bot lane, always: <b>Lethal Tempo</b>, Triumph, Legend: Alacrity, Cut Down + Cash Back, Biscuit Delivery. Shards: adaptive, adaptive, health. Solo lane: <b>Press the Attack</b> instead of Lethal Tempo. Start Doran's Bow on every build except Manamune.</p>
+  </div>
+
+  <div class="card build" id="build1">
+    <h3>1. Default</h3>
+    <p class="when">The one I go most.</p>
+    <img class="row" src="img/b1-default-core.png" alt="Statikk Shiv, Guinsoo's Rageblade, omniboots, Terminus">
+    <div class="label">Then situational</div>
+    <img class="row" src="img/b1-situational.png" alt="Nashor's Tooth, Dusk and Dawn, Zhonya's, Banshee's, Rabadon's, Shadowflame">
+    <div class="label">Forced into Mercs or Steelcaps? Add Gunblade</div>
+    <img class="row" src="img/b1-gunblade-boots.png" alt="Mercury's Treads or Plated Steelcaps, Hextech Gunblade">
+  </div>
+
+  <div class="card build" id="build2">
+    <h3>2. No Terminus</h3>
+    <p class="when">Can't fight in auto range, or the enemy is full of squishies (short fights, no value from Terminus).</p>
+    <img class="row" src="img/b2-no-terminus-core.png" alt="Statikk Shiv, Guinsoo's Rageblade, then Nashor's Tooth or Dusk and Dawn">
+    <p>Then the same situational items as build 1.</p>
+  </div>
+
+  <div class="card build" id="build3">
+    <h3>3. AD crit: frontline melter</h3>
+    <p class="when">Going AD and they have 3+ melee champions (and no hypercarry).</p>
+    <img class="row" src="img/b3-ad-crit-frontline.png" alt="Kraken Slayer, Guinsoo's, omniboots, Terminus, Runaan's Hurricane, Infinity Edge">
+    <div class="label">Then</div>
+    <img class="row" src="img/b3-situational.png" alt="Zhonya's, Mercurial Scimitar or Bloodthirster">
+  </div>
+
+  <div class="card build" id="build4">
+    <h3>4. AD crit: the hunter</h3>
+    <p class="when">You have to hunt someone down, or they have a hypercarry. Your R comes up far more often.</p>
+    <img class="row" src="img/b4-ad-crit-hunter.png" alt="Kraken Slayer, Guinsoo's, Berserker's Greaves, Fiendhunter Bolts, Lord Dominik's Regards, Infinity Edge">
+    <div class="label">Then</div>
+    <img class="row" src="img/b4-situational.png" alt="Zhonya's, Mercurial Scimitar or Bloodthirster">
+    <p>Lord Dominik's before Infinity Edge, or you lose damage into anything tanky. After Fiendhunter, spend the Cash Back gold on an extra Dagger and hold it until you need the slot.</p>
+  </div>
+
+  <div class="card build" id="build5">
+    <h3>5. Full on-hit</h3>
+    <p class="when">One fed target that has to die. Almost impossible to itemise against.</p>
+    <img class="row" src="img/b5-full-onhit.png" alt="Kraken Slayer, Guinsoo's, omniboots, Terminus, Dusk and Dawn, Blade of the Ruined King">
+    <div class="label">Then</div>
+    <img class="row" src="img/b5-situational.png" alt="Zhonya's, Quicksilver Sash or Mercurial Scimitar">
+    <p>Counter: an enemy with more damage or burst than you. Don't build it blind.</p>
+  </div>
+
+  <div class="card build" id="build6">
+    <h3>6. Manamune</h3>
+    <p class="when">Solo lane, in a matchup where you can scale.</p>
+    <div class="label">Start Doran's Blade, first back with 850 gold for Cull + Tear</div>
+    <img class="row" src="img/b6-manamune-start.png" alt="Doran's Blade, Cull, Tear of the Goddess">
+    <div class="label">Then max W</div>
+    <img class="row" src="img/b6-manamune.png" alt="Manamune, Luden's Echo, Sorcerer's Shoes, Shadowflame, Void Staff or Cryptbloom, Rabadon's">
+    <div class="label">Boots: Sorcerer's, or Swifties vs Nasus</div>
+    <img class="row" src="img/b6-boots-sorc-or-swifties.png" alt="Sorcerer's Shoes or Boots of Swiftness">
+    <p>Runes: First Strike, Cash Back, Triple Tonic, Jack of All Trades, Absolute Focus, Gathering Storm. Shards: attack speed, adaptive, health scaling. Wait one second between R and W, so your W predicts less and lands more.</p>
+  </div>
+</section>
+
+<section id="kiting">
+  <h2>Kiting setup</h2>
+  <p class="sub">Move your cursor as little as possible. Full version in the <a href="https://youtu.be/FGYk4qAUy2I" target="_blank" rel="noopener">kiting guide</a>.</p>
+  <ul class="tldr">
+    <li><b>Right-click + Target Champions Only (on a toggle):</b> hits the champion, never the minion next to them.</li>
+    <li><b><kbd>A</kbd> attack move, closest to cursor:</b> for kiting away and messy teamfights. Set it to cursor, not champion.</li>
+    <li><b><kbd>C</kbd> attack range:</b> shows exactly where your autos reach. Mostly a laning-phase tool.</li>
+    <li><b>The rule:</b> running away, <kbd>A</kbd>-click right next to your own champion. Chasing, right-click with Target Champions Only if you can be 100% accurate, otherwise <kbd>A</kbd>-click.</li>
+  </ul>
+</section>
+
+<section id="videos">
+  <h2>Guides</h2>
+  <p class="sub">More on <a href="https://www.youtube.com/@collionlol" target="_blank" rel="noopener">YouTube</a>.</p>
+  <div class="grid">
+    <figure class="vid"><div class="video"><iframe src="https://www.youtube-nocookie.com/embed/3JK41BjXKt8" title="Rank 1 Kai'Sa build guide" loading="lazy" allow="encrypted-media; picture-in-picture" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div><figcaption><b>Kai'Sa build guide</b> · all 6 builds, Season 16</figcaption></figure>
+    <figure class="vid"><div class="video"><iframe src="https://www.youtube-nocookie.com/embed/FGYk4qAUy2I" title="Rank 1 Kai'Sa kiting guide" loading="lazy" allow="encrypted-media; picture-in-picture" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div><figcaption><b>Kiting guide</b> · keybinds, attack move &amp; settings</figcaption></figure>
+    <figure class="vid"><div class="video"><iframe src="https://www.youtube-nocookie.com/embed/lJekxSbUDzI" title="The Ultimate ADC Guide" loading="lazy" allow="encrypted-media; picture-in-picture" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div><figcaption><b>The Ultimate ADC Guide</b> · from an older patch; items have changed, the fundamentals haven't</figcaption></figure>
+  </div>
+</section>
+
+<section id="coaching">
+  <h2>Coaching</h2>
+  <p class="sub">1-on-1 with a Challenger ADC. Built around your own games, not generic tips.</p>
+  <h3 style="margin:0 0 10px">How a session goes</h3>
+  <ol class="tldr" style="margin-bottom:12px">
+    <li><b>Your OP.GG first.</b> I look for patterns in your match history and tell you what I find.</li>
+    <li><b>Your weaknesses.</b> You tell me what you think they are, and we pick a game or two that shows them best.</li>
+    <li><b>The full game, in detail.</b> We go through it and talk about everything that comes up, backed with real statistics, not opinions.</li>
+    <li><b>You summarise.</b> You recall what you learned, I write it up as bullet points and fill in the blanks. You keep the summary.</li>
+    <li><b>Live coaching (optional).</b> We put the theory into practice in a real game.</li>
+  </ol>
+  <p class="sub">The focus is what matters most for an ADC: early laning, mid-game macro and teamfighting.</p>
+  <div class="grid">
+    <div class="card">
+      <h3>Coaching session</h3>
+      <p class="when" style="margin:6px 0 0">25 € / hour</p>
+      <p>Live 1-on-1 on Discord: your games, your lane, what is actually costing you LP.</p>
+    </div>
+    <div class="card">
+      <h3>+ Data deep-dive</h3>
+      <p class="when" style="margin:6px 0 0">+15 € flat</p>
+      <p>Before we talk, I pull your recent solo-queue games and run them through my analysis pipeline to find the patterns. The session then goes straight at what matters, and you get a written plan.</p>
+    </div>
+    <div class="card">
+      <h3>Book</h3>
+      <p>Join the <a href="https://discord.gg/yXxABBHcGC" target="_blank" rel="noopener">Discord server</a> and DM me: <b>collion</b>.</p>
+      <p style="margin-top:12px"><a class="btn primary" href="https://discord.gg/yXxABBHcGC" target="_blank" rel="noopener">Join the Discord</a></p>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer><div class="wrap">
+  © Collion · Not endorsed by Riot Games. League of Legends and Kai'Sa are trademarks of Riot Games, Inc. Item art from Riot's Data Dragon.
+</div></footer>
+</body>
+</html>
