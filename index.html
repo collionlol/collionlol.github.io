@@ -101,6 +101,22 @@
   .shot img { width: 100%; aspect-ratio: 16/9; height: auto; object-fit: contain; display: block; background: #0b0a10; }
   .shot span { padding: 10px 12px; }
   .shot b { color: var(--text); }
+  .apply { margin-top: 14px; scroll-margin-top: 64px; border-color: #4a2d6b; }
+  .apply form { display: grid; gap: 12px; margin-top: 14px; }
+  .frow { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+  .apply label { display: grid; gap: 6px; font-size: 13px; color: var(--muted); font-weight: 600; }
+  .apply input, .apply select, .apply textarea { font: 15px Inter, system-ui, sans-serif; color: var(--text); background: #100d18; border: 1px solid var(--line); border-radius: 8px; padding: 10px 12px; width: 100%; }
+  .apply input:focus, .apply select:focus, .apply textarea:focus { outline: none; border-color: var(--accent); }
+  .apply textarea { resize: vertical; }
+  .apply .check { display: flex; align-items: center; gap: 8px; font-weight: 400; }
+  .apply .check input { width: auto; accent-color: var(--accent); }
+  .apply .hp { position: absolute; left: -9999px; width: 1px; height: 1px; }
+  .apply button { justify-self: start; cursor: pointer; border: 0; }
+  .apply button[disabled] { opacity: .6; cursor: wait; }
+  .formmsg { margin: 0; font-size: 14px; }
+  .formmsg.ok { color: #6ee7a8; } .formmsg.err { color: #ff8a8a; }
+  .apply .alt { font-size: 14px; }
+  @media (max-width: 600px) { .frow { grid-template-columns: 1fr; } }
   .eyebrow { margin: 0 0 10px; color: var(--accent); font-weight: 600; font-size: 13px; letter-spacing: .1em; text-transform: uppercase; }
   .btn.big { padding: 13px 20px; font-size: 15px; }
   .anchor { margin: 12px 0 0; color: var(--muted); font-size: 14px; }
@@ -129,7 +145,7 @@
   <a href="#kiting">Kiting</a>
   <a href="#videos">Guides</a>
   <a href="#faq">FAQ</a>
-  <a class="btn primary navcta" href="#coaching">Book coaching</a>
+  <a class="btn primary navcta" href="#apply">Apply for coaching</a>
 </div></nav>
 
 <header class="hero">
@@ -145,7 +161,7 @@
       <li><a href="https://www.leagueofgraphs.com/rankings/summoners/kaisa" target="_blank" rel="noopener"><b>#10</b> Kai'Sa on League of Graphs</a></li>
     </ul>
     <div class="btns">
-      <a class="btn primary big" href="#coaching">Book coaching</a>
+      <a class="btn primary big" href="#apply">Apply for coaching</a>
       <a class="btn big" href="#builds">See the builds</a>
     </div>
     <p class="anchor">From 25 € / hour · live on Discord</p>
@@ -196,11 +212,29 @@
       <p class="when" style="margin:6px 0 0">+15 € flat</p>
       <p>Before we talk, I pull your recent solo-queue games and run them through my analysis pipeline to find the patterns. The session then goes straight at what matters, and you get a written plan.</p>
     </div>
-    <div class="card">
-      <h3>Book</h3>
-      <p>Join the <a href="https://discord.gg/yXxABBHcGC" target="_blank" rel="noopener">Discord server</a> and DM me: <b>collion</b>.</p>
-      <p style="margin-top:12px"><a class="btn primary" href="https://discord.gg/yXxABBHcGC" target="_blank" rel="noopener">Join the Discord</a></p>
-    </div>
+  </div>
+
+  <div class="card apply" id="apply">
+    <h3>Apply for coaching</h3>
+    <p>Takes a minute. I'll DM you on Discord to set a time; nothing is paid until we've talked.</p>
+    <form id="applyform" novalidate>
+      <div class="frow">
+        <label>Discord username *<input name="discord" required maxlength="40" placeholder="yourname" autocomplete="off"></label>
+        <label>OP.GG link *<input name="opgg" required maxlength="200" placeholder="https://op.gg/lol/summoners/..." inputmode="url"></label>
+      </div>
+      <div class="frow">
+        <label>Current rank<select name="rank">
+          <option value="">Pick one</option><option>Iron</option><option>Bronze</option><option>Silver</option><option>Gold</option>
+          <option>Platinum</option><option>Emerald</option><option>Diamond</option><option>Master+</option></select></label>
+        <label>Main champ or role<input name="champ" maxlength="80" placeholder="Kai'Sa / ADC"></label>
+      </div>
+      <label>What do you want to fix?<textarea name="goal" maxlength="1000" rows="3" placeholder="e.g. I win lane but lose the game, I die in every teamfight..."></textarea></label>
+      <label class="check"><input type="checkbox" name="deepdive"> Add the data deep-dive (+15 €)</label>
+      <input class="hp" name="website" tabindex="-1" autocomplete="off" aria-hidden="true">
+      <button class="btn primary big" type="submit">Apply</button>
+      <p class="formmsg" role="status" aria-live="polite"></p>
+    </form>
+    <p class="alt">Rather just talk? Join the <a href="https://discord.gg/yXxABBHcGC" target="_blank" rel="noopener">Discord</a> and DM <b>collion</b>.</p>
   </div>
 </section>
 
@@ -326,6 +360,27 @@ document.querySelectorAll('.lite').forEach(function (b) {
     b.replaceWith(f);
   });
 });
+</script>
+<script>
+(function () {
+  var f = document.getElementById('applyform'); if (!f) return;
+  var msg = f.querySelector('.formmsg'), btn = f.querySelector('button');
+  f.addEventListener('submit', function (e) {
+    e.preventDefault();
+    var d = { discord: f.discord.value.trim(), opgg: f.opgg.value.trim(), rank: f.rank.value, champ: f.champ.value.trim(),
+              goal: f.goal.value.trim(), deepdive: f.deepdive.checked, website: f.website.value };
+    if (!d.discord || !d.opgg) { msg.className = 'formmsg err'; msg.textContent = 'Your Discord name and OP.GG link are needed.'; return; }
+    btn.disabled = true; msg.className = 'formmsg'; msg.textContent = 'Sending...';
+    fetch('https://collion-apply.apply-worker.workers.dev', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(d) })
+      .then(function (r) { return r.json(); })
+      .then(function (r) {
+        if (r.ok) { f.reset(); msg.className = 'formmsg ok'; msg.textContent = "Sent! I'll DM you on Discord soon. Make sure your DMs are open, or join the server."; }
+        else throw new Error(r.error || 'failed');
+      })
+      .catch(function () { msg.className = 'formmsg err'; msg.textContent = "Couldn't send it. Please DM collion on Discord instead."; })
+      .then(function () { btn.disabled = false; });
+  });
+})();
 </script>
 </body>
 </html>
