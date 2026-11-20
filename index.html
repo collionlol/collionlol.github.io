@@ -81,7 +81,13 @@
   figcaption b { color: var(--text); }
   kbd { background: #241d31; border: 1px solid var(--line); border-bottom-width: 2px; border-radius: 5px; padding: 1px 7px; font: 600 13px Inter, sans-serif; color: var(--text); }
   .navcta { margin-left: 6px; padding: 7px 12px; color: #fff !important; }
-  header.hero { position: relative; overflow: hidden; padding: 0; background: linear-gradient(90deg, var(--bg) 0%, rgba(13,11,20,.55) 40%, rgba(13,11,20,.82) 62%, rgba(13,11,20,.9) 100%), linear-gradient(0deg, var(--bg) 0%, transparent 30%), url("img/kaisa-splash.jpg") center 22% / cover no-repeat, var(--bg); border-bottom: 1px solid var(--line); }
+  header.hero { position: relative; overflow: hidden; padding: 0; border-bottom: 1px solid var(--line);
+    background: linear-gradient(90deg, var(--bg) 0%, rgba(13,11,20,.55) calc(50% - 300px), rgba(13,11,20,.86) calc(50% - 40px), rgba(13,11,20,.86) calc(50% + 450px), rgba(13,11,20,.3) calc(50% + 620px), rgba(13,11,20,.5) 100%),
+      linear-gradient(0deg, var(--bg) 0%, transparent 30%),
+      url("img/kaisa-splash.jpg") no-repeat, var(--bg);
+    /* her face sits right of the text column, never behind his head: face is at (632,161) of the 1288x760 render */
+    background-size: auto, auto, auto 760px, auto;
+    background-position: 0 0, 0 0, calc(max(100vw - 320px, 50vw + 640px) - 632px) 0, 0 0; }
   .hero .wrap { position: relative; min-height: 560px; display: flex; align-items: center; }
   .hero-photo { position: absolute; right: calc(54% + 16px); bottom: 0; height: 100%; pointer-events: none; display: flex; align-items: flex-end; }
   .hero-photo img { height: min(92%, 40vw); width: auto; display: block; }
@@ -132,7 +138,8 @@
   summary::after { content: "+"; color: var(--accent); font-weight: 800; }
   details[open] summary::after { content: "\2013"; }
   details p { margin: 0; padding: 0 16px 14px; color: var(--muted); }
-  @media (max-width: 720px) { .navcta { display: none; } }
+  @media (max-width: 720px) { nav a.hide-sm { display: none; } .navcta { padding: 6px 11px; font-size: 13px; } }
+  @media (max-width: 600px) { .proofgrid { grid-template-columns: 1fr 1fr; gap: 8px; } .shot span { padding: 8px 10px; font-size: 12px; } }
   footer { padding: 32px 0 48px; color: var(--muted); font-size: 13px; border-top: 1px solid var(--line); }
   @media (max-width: 520px) { .row { height: 38px; } header { padding-top: 40px; } }
 </style>
@@ -140,11 +147,11 @@
 <body>
 <nav><div class="wrap">
   <b>Collion</b>
-  <a href="#coaching">Coaching</a>
+  <a class="hide-sm" href="#coaching">Coaching</a>
   <a href="#builds">Builds</a>
-  <a href="#kiting">Kiting</a>
-  <a href="#videos">Guides</a>
-  <a href="#faq">FAQ</a>
+  <a class="hide-sm" href="#kiting">Kiting</a>
+  <a class="hide-sm" href="#videos">Guides</a>
+  <a class="hide-sm" href="#faq">FAQ</a>
   <a class="btn primary navcta" href="#apply">Apply for coaching</a>
 </div></nav>
 
@@ -259,43 +266,43 @@
   <div class="card build" id="build1">
     <h3>1. Default</h3>
     <p class="when">The one I go most.</p>
-    <img class="row" src="img/b1-default-core.png" alt="Statikk Shiv, Guinsoo's Rageblade, omniboots, Terminus">
+    <img class="row" src="img/b1-default-core.png" alt="Statikk Shiv, Guinsoo's Rageblade, omniboots, Terminus" title="Statikk Shiv, Guinsoo's Rageblade, omniboots, Terminus">
     <div class="label">Then situational</div>
-    <img class="row" src="img/b1-situational.png" alt="Nashor's Tooth, Dusk and Dawn, Zhonya's, Banshee's, Rabadon's, Shadowflame">
+    <img class="row" src="img/b1-situational.png" alt="Nashor's Tooth, Dusk and Dawn, Zhonya's, Banshee's, Rabadon's, Shadowflame" title="Nashor's Tooth, Dusk and Dawn, Zhonya's, Banshee's, Rabadon's, Shadowflame">
     <div class="label">Forced into Mercs or Steelcaps? Add Gunblade</div>
-    <img class="row" src="img/b1-gunblade-boots.png" alt="Mercury's Treads or Plated Steelcaps, Hextech Gunblade">
+    <img class="row" src="img/b1-gunblade-boots.png" alt="Mercury's Treads or Plated Steelcaps, Hextech Gunblade" title="Mercury's Treads or Plated Steelcaps, Hextech Gunblade">
   </div>
 
   <div class="card build" id="build2">
     <h3>2. No Terminus</h3>
     <p class="when">Can't fight in auto range, or the enemy is full of squishies (short fights, no value from Terminus).</p>
-    <img class="row" src="img/b2-no-terminus-core.png" alt="Statikk Shiv, Guinsoo's Rageblade, then Nashor's Tooth or Dusk and Dawn">
+    <img class="row" src="img/b2-no-terminus-core.png" alt="Statikk Shiv, Guinsoo's Rageblade, then Nashor's Tooth or Dusk and Dawn" title="Statikk Shiv, Guinsoo's Rageblade, then Nashor's Tooth or Dusk and Dawn">
     <p>Then the same situational items as build 1.</p>
   </div>
 
   <div class="card build" id="build3">
     <h3>3. AD crit: frontline melter</h3>
     <p class="when">Going AD and they have 3+ melee champions (and no hypercarry).</p>
-    <img class="row" src="img/b3-ad-crit-frontline.png" alt="Kraken Slayer, Guinsoo's, omniboots, Terminus, Runaan's Hurricane, Infinity Edge">
+    <img class="row" src="img/b3-ad-crit-frontline.png" alt="Kraken Slayer, Guinsoo's, omniboots, Terminus, Runaan's Hurricane, Infinity Edge" title="Kraken Slayer, Guinsoo's, omniboots, Terminus, Runaan's Hurricane, Infinity Edge">
     <div class="label">Then</div>
-    <img class="row" src="img/b3-situational.png" alt="Zhonya's, Mercurial Scimitar or Bloodthirster">
+    <img class="row" src="img/b3-situational.png" alt="Zhonya's, Mercurial Scimitar or Bloodthirster" title="Zhonya's, Mercurial Scimitar or Bloodthirster">
   </div>
 
   <div class="card build" id="build4">
     <h3>4. AD crit: the hunter</h3>
     <p class="when">You have to hunt someone down, or they have a hypercarry. Your R comes up far more often.</p>
-    <img class="row" src="img/b4-ad-crit-hunter.png" alt="Kraken Slayer, Guinsoo's, Berserker's Greaves, Fiendhunter Bolts, Lord Dominik's Regards, Infinity Edge">
+    <img class="row" src="img/b4-ad-crit-hunter.png" alt="Kraken Slayer, Guinsoo's, Berserker's Greaves, Fiendhunter Bolts, Lord Dominik's Regards, Infinity Edge" title="Kraken Slayer, Guinsoo's, Berserker's Greaves, Fiendhunter Bolts, Lord Dominik's Regards, Infinity Edge">
     <div class="label">Then</div>
-    <img class="row" src="img/b4-situational.png" alt="Zhonya's, Mercurial Scimitar or Bloodthirster">
+    <img class="row" src="img/b4-situational.png" alt="Zhonya's, Mercurial Scimitar or Bloodthirster" title="Zhonya's, Mercurial Scimitar or Bloodthirster">
     <p>Lord Dominik's before Infinity Edge, or you lose damage into anything tanky. After Fiendhunter, spend the Cash Back gold on an extra Dagger and hold it until you need the slot.</p>
   </div>
 
   <div class="card build" id="build5">
     <h3>5. Full on-hit</h3>
     <p class="when">One fed target that has to die. Almost impossible to itemise against.</p>
-    <img class="row" src="img/b5-full-onhit.png" alt="Kraken Slayer, Guinsoo's, omniboots, Terminus, Dusk and Dawn, Blade of the Ruined King">
+    <img class="row" src="img/b5-full-onhit.png" alt="Kraken Slayer, Guinsoo's, omniboots, Terminus, Dusk and Dawn, Blade of the Ruined King" title="Kraken Slayer, Guinsoo's, omniboots, Terminus, Dusk and Dawn, Blade of the Ruined King">
     <div class="label">Then</div>
-    <img class="row" src="img/b5-situational.png" alt="Zhonya's, Quicksilver Sash or Mercurial Scimitar">
+    <img class="row" src="img/b5-situational.png" alt="Zhonya's, Quicksilver Sash or Mercurial Scimitar" title="Zhonya's, Quicksilver Sash or Mercurial Scimitar">
     <p>Counter: an enemy with more damage or burst than you. Don't build it blind.</p>
   </div>
 
@@ -303,11 +310,11 @@
     <h3>6. Manamune</h3>
     <p class="when">Solo lane, in a matchup where you can scale.</p>
     <div class="label">Start Doran's Blade, first back with 850 gold for Cull + Tear</div>
-    <img class="row" src="img/b6-manamune-start.png" alt="Doran's Blade, Cull, Tear of the Goddess">
+    <img class="row" src="img/b6-manamune-start.png" alt="Doran's Blade, Cull, Tear of the Goddess" title="Doran's Blade, Cull, Tear of the Goddess">
     <div class="label">Then max W</div>
-    <img class="row" src="img/b6-manamune.png" alt="Manamune, Luden's Echo, Sorcerer's Shoes, Shadowflame, Void Staff or Cryptbloom, Rabadon's">
+    <img class="row" src="img/b6-manamune.png" alt="Manamune, Luden's Echo, Sorcerer's Shoes, Shadowflame, Void Staff or Cryptbloom, Rabadon's" title="Manamune, Luden's Echo, Sorcerer's Shoes, Shadowflame, Void Staff or Cryptbloom, Rabadon's">
     <div class="label">Boots: Sorcerer's, or Swifties vs Nasus</div>
-    <img class="row" src="img/b6-boots-sorc-or-swifties.png" alt="Sorcerer's Shoes or Boots of Swiftness">
+    <img class="row" src="img/b6-boots-sorc-or-swifties.png" alt="Sorcerer's Shoes or Boots of Swiftness" title="Sorcerer's Shoes or Boots of Swiftness">
     <p>Runes: First Strike, Cash Back, Triple Tonic, Jack of All Trades, Absolute Focus, Gathering Storm. Shards: attack speed, adaptive, health scaling. Wait one second between R and W, so your W predicts less and lands more.</p>
   </div>
 </section>
