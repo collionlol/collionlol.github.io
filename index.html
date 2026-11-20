@@ -114,6 +114,14 @@
   .proof li:hover { border-color: var(--accent); }
   .proofgrid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
   .shot.wide { grid-column: 1 / -1; }
+  /* hover preview: the screenshot at (about) its real size over the grid; mouse/trackpad only, tap still opens the lightbox */
+  .proofgrid { position: relative; }
+  .peek { position: absolute; top: -8px; left: 50%; z-index: 6; pointer-events: none; opacity: 0; transform: translateX(-50%) scale(.96);
+    transition: opacity .14s ease, transform .14s ease; background: #0b0a10; border: 1px solid var(--accent); border-radius: 12px;
+    box-shadow: 0 24px 70px rgba(0,0,0,.65); overflow: hidden; }
+  .peek.on { opacity: 1; transform: translateX(-50%) scale(1); }
+  .peek img { display: block; width: 100%; height: auto; }
+  .peek p { margin: 0; padding: 8px 12px; font-size: 13px; color: var(--muted); }
   .liverank { display: flex; flex-wrap: wrap; align-items: center; gap: 10px 16px; margin-top: 16px; }
   .liverank .btn { border-color: var(--accent); }
   .liverank span { color: var(--muted); font-size: 14px; }
@@ -247,7 +255,7 @@
   <h2>Hi, I'm Collion</h2>
   <p class="about">Challenger ADC from Hungary, and I one-trick Kai'Sa. Back in 2014 my team came 2nd at the Hungarian Nationals, out of 512 teams. Today I stream on <a href="https://twitch.tv/collionlol" target="_blank" rel="noopener">Twitch</a> and post a Kai'Sa game on <a href="https://www.youtube.com/@collionlol" target="_blank" rel="noopener">YouTube</a> most days, plus guides. I also have a BSc and an MSc in Computer Science, which is where the data side comes from: when I coach, I run your ranked games through the same pipeline I use on my own, so we work on what is actually costing you LP, not on generic tips.</p>
   <h3 class="minihead">Track record</h3>
-  <p class="sub">Peak ranks, screenshotted November 2026. Ladders move every week, so these are the highs. Click one to see it full size.</p>
+  <p class="sub">Peak ranks, screenshotted November 2026. Ladders move every week, so these are the highs. Hover or click one to see it full size.</p>
   <div class="proofgrid">
     <a class="shot" href="img/proof/challenger.png"><img src="img/proof/challenger.png" alt="Promoted to Challenger on Kai'Sa only (Seasons 15 and 16)" loading="lazy" width="320" height="175"><span><b>Challenger</b> on Kai'Sa only, Seasons 15&nbsp;&amp;&nbsp;16</span></a>
     <a class="shot" href="img/proof/minor-1.png"><img src="img/proof/minor-1.png" alt="onetricks.gg Kai'Sa ranking, minor regions: Collion #1, Challenger 2098 LP" loading="lazy" width="975" height="548"><span><b>#1</b> Kai'Sa in the minor regions, every player counted (onetricks.gg)</span></a>
@@ -510,6 +518,30 @@ document.querySelectorAll('.lite').forEach(function (b) {
   }
   document.querySelectorAll('input[name=pkgsize]').forEach(function (r) { r.addEventListener('change', update); });
   dd.addEventListener('change', update); update();
+})();
+</script>
+<script>
+(function () {
+  // hover preview for the track-record screenshots (only where a real hover exists)
+  if (!window.matchMedia || !matchMedia('(hover: hover) and (pointer: fine)').matches) return;
+  var grid = document.querySelector('.proofgrid'); if (!grid) return;
+  var peek = document.createElement('div'); peek.className = 'peek'; peek.setAttribute('aria-hidden', 'true');
+  var im = document.createElement('img'); im.alt = ''; var cap = document.createElement('p');
+  peek.appendChild(im); peek.appendChild(cap); grid.appendChild(peek);
+  var t;
+  grid.querySelectorAll('a.shot:not(.wide)').forEach(function (a) {
+    var src = a.querySelector('img');
+    a.addEventListener('mouseenter', function () {
+      clearTimeout(t);
+      im.src = a.getAttribute('href'); cap.textContent = a.querySelector('span').textContent;
+      // its real width, but never wider than the grid; small screenshots get at least 640px so they are readable
+      var w = Math.min(grid.clientWidth, Math.max(src.naturalWidth || 640, 640));
+      peek.style.width = w + 'px';
+      t = setTimeout(function () { peek.classList.add('on'); }, 120);   // short delay so sweeping past a card does not flash it
+    });
+    a.addEventListener('mouseleave', function () { clearTimeout(t); peek.classList.remove('on'); });
+    a.addEventListener('click', function () { clearTimeout(t); peek.classList.remove('on'); });
+  });
 })();
 </script>
 </body>
