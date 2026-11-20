@@ -184,6 +184,7 @@
   .pkgs .opt:has(input:checked) .tick { background: var(--accent); border-color: var(--accent); color: #fff; }
   .pkgs .opt:has(input:checked) .tick::before { content: "\2713"; font-size: 12px; }
   .breakdown { background: var(--panel); border: 1px solid var(--line); border-radius: 14px; padding: 14px 20px; margin: 0 0 14px; }
+  .breakdown .bl[hidden] { display: none; }
   .breakdown .bl { display: flex; justify-content: space-between; gap: 12px; padding: 5px 0; color: var(--muted); font-size: 15px; }
   .breakdown .bl.total { border-top: 1px solid var(--line); margin-top: 6px; padding-top: 10px; color: var(--text); font-size: 17px; }
   .breakdown .bnote { margin: 8px 0 0; font-size: 13px; color: var(--muted); }
@@ -365,43 +366,43 @@
   <div class="card build" id="build1">
     <h3>1. Default</h3>
     <p class="when">The one I go most.</p>
-    <img class="row" src="img/b1-default-core.png" alt="Statikk Shiv, Guinsoo's Rageblade, omniboots, Terminus" title="Statikk Shiv, Guinsoo's Rageblade, omniboots, Terminus">
+    <img class="row" src="img/b1-default-core.webp" alt="Statikk Shiv, Guinsoo's Rageblade, omniboots, Terminus" title="Statikk Shiv, Guinsoo's Rageblade, omniboots, Terminus">
     <div class="label">Then situational</div>
-    <img class="row" src="img/b1-situational.png" alt="Nashor's Tooth, Dusk and Dawn, Zhonya's, Banshee's, Rabadon's, Shadowflame" title="Nashor's Tooth, Dusk and Dawn, Zhonya's, Banshee's, Rabadon's, Shadowflame">
+    <img class="row" src="img/b1-situational.webp" alt="Nashor's Tooth, Dusk and Dawn, Zhonya's, Banshee's, Rabadon's, Shadowflame" title="Nashor's Tooth, Dusk and Dawn, Zhonya's, Banshee's, Rabadon's, Shadowflame">
     <div class="label">Forced into Mercs or Steelcaps? Add Gunblade</div>
-    <img class="row" src="img/b1-gunblade-boots.png" alt="Mercury's Treads or Plated Steelcaps, Hextech Gunblade" title="Mercury's Treads or Plated Steelcaps, Hextech Gunblade">
+    <img class="row" src="img/b1-gunblade-boots.webp" alt="Mercury's Treads or Plated Steelcaps, Hextech Gunblade" title="Mercury's Treads or Plated Steelcaps, Hextech Gunblade">
   </div>
 
   <div class="card build" id="build2">
     <h3>2. No Terminus</h3>
     <p class="when">Can't fight in auto range, or the enemy is full of squishies (short fights, no value from Terminus).</p>
-    <img class="row" src="img/b2-no-terminus-core.png" alt="Statikk Shiv, Guinsoo's Rageblade, then Nashor's Tooth or Dusk and Dawn" title="Statikk Shiv, Guinsoo's Rageblade, then Nashor's Tooth or Dusk and Dawn">
+    <img class="row" src="img/b2-no-terminus-core.webp" alt="Statikk Shiv, Guinsoo's Rageblade, then Nashor's Tooth or Dusk and Dawn" title="Statikk Shiv, Guinsoo's Rageblade, then Nashor's Tooth or Dusk and Dawn">
     <p>Then the same situational items as build 1.</p>
   </div>
 
   <div class="card build" id="build3">
     <h3>3. AD crit: frontline melter</h3>
     <p class="when">Going AD and they have 3+ melee champions (and no hypercarry).</p>
-    <img class="row" src="img/b3-ad-crit-frontline.png" alt="Kraken Slayer, Guinsoo's, omniboots, Terminus, Runaan's Hurricane, Infinity Edge" title="Kraken Slayer, Guinsoo's, omniboots, Terminus, Runaan's Hurricane, Infinity Edge">
+    <img class="row" src="img/b3-ad-crit-frontline.webp" alt="Kraken Slayer, Guinsoo's, omniboots, Terminus, Runaan's Hurricane, Infinity Edge" title="Kraken Slayer, Guinsoo's, omniboots, Terminus, Runaan's Hurricane, Infinity Edge">
     <div class="label">Then</div>
-    <img class="row" src="img/b3-situational.png" alt="Zhonya's, Mercurial Scimitar or Bloodthirster" title="Zhonya's, Mercurial Scimitar or Bloodthirster">
+    <img class="row" src="img/b3-situational.webp" alt="Zhonya's, Mercurial Scimitar or Bloodthirster" title="Zhonya's, Mercurial Scimitar or Bloodthirster">
   </div>
 
   <div class="card build" id="build4">
     <h3>4. AD crit: the hunter</h3>
     <p class="when">You have to hunt someone down, or they have a hypercarry. Your R comes up far more often.</p>
-    <img class="row" src="img/b4-ad-crit-hunter.png" alt="Kraken Slayer, Guinsoo's, Berserker's Greaves, Fiendhunter Bolts, Lord Dominik's Regards, Infinity Edge" title="Kraken Slayer, Guinsoo's, Berserker's Greaves, Fiendhunter Bolts, Lord Dominik's Regards, Infinity Edge">
+    <img class="row" src="img/b4-ad-crit-hunter.webp" alt="Kraken Slayer, Guinsoo's, Berserker's Greaves, Fiendhunter Bolts, Lord Dominik's Regards, Infinity Edge" title="Kraken Slayer, Guinsoo's, Berserker's Greaves, Fiendhunter Bolts, Lord Dominik's Regards, Infinity Edge">
     <div class="label">Then</div>
-    <img class="row" src="img/b4-situational.png" alt="Zhonya's, Mercurial Scimitar or Bloodthirster" title="Zhonya's, Mercurial Scimitar or Bloodthirster">
+    <img class="row" src="img/b4-situational.webp" alt="Zhonya's, Mercurial Scimitar or Bloodthirster" title="Zhonya's, Mercurial Scimitar or Bloodthirster">
     <p>Lord Dominik's before Infinity Edge, or you lose damage into anything tanky. After Fiendhunter, spend the Cash Back gold on an extra Dagger and hold it until you need the slot.</p>
   </div>
 
   <div class="card build" id="build5">
     <h3>5. Full on-hit</h3>
     <p class="when">One fed target that has to die. Almost impossible to itemise against.</p>
-    <img class="row" src="img/b5-full-onhit.png" alt="Kraken Slayer, Guinsoo's, omniboots, Terminus, Dusk and Dawn, Blade of the Ruined King" title="Kraken Slayer, Guinsoo's, omniboots, Terminus, Dusk and Dawn, Blade of the Ruined King">
+    <img class="row" src="img/b5-full-onhit.webp" alt="Kraken Slayer, Guinsoo's, omniboots, Terminus, Dusk and Dawn, Blade of the Ruined King" title="Kraken Slayer, Guinsoo's, omniboots, Terminus, Dusk and Dawn, Blade of the Ruined King">
     <div class="label">Then</div>
-    <img class="row" src="img/b5-situational.png" alt="Zhonya's, Quicksilver Sash or Mercurial Scimitar" title="Zhonya's, Quicksilver Sash or Mercurial Scimitar">
+    <img class="row" src="img/b5-situational.webp" alt="Zhonya's, Quicksilver Sash or Mercurial Scimitar" title="Zhonya's, Quicksilver Sash or Mercurial Scimitar">
     <p>Counter: an enemy with more damage or burst than you. Don't build it blind.</p>
   </div>
 
@@ -409,11 +410,11 @@
     <h3>6. Manamune</h3>
     <p class="when">Solo lane, in a matchup where you can scale.</p>
     <div class="label">Start Doran's Blade, first back with 850 gold for Cull + Tear</div>
-    <img class="row" src="img/b6-manamune-start.png" alt="Doran's Blade, Cull, Tear of the Goddess" title="Doran's Blade, Cull, Tear of the Goddess">
+    <img class="row" src="img/b6-manamune-start.webp" alt="Doran's Blade, Cull, Tear of the Goddess" title="Doran's Blade, Cull, Tear of the Goddess">
     <div class="label">Then max W</div>
-    <img class="row" src="img/b6-manamune.png" alt="Manamune, Luden's Echo, Sorcerer's Shoes, Shadowflame, Void Staff or Cryptbloom, Rabadon's" title="Manamune, Luden's Echo, Sorcerer's Shoes, Shadowflame, Void Staff or Cryptbloom, Rabadon's">
+    <img class="row" src="img/b6-manamune.webp" alt="Manamune, Luden's Echo, Sorcerer's Shoes, Shadowflame, Void Staff or Cryptbloom, Rabadon's" title="Manamune, Luden's Echo, Sorcerer's Shoes, Shadowflame, Void Staff or Cryptbloom, Rabadon's">
     <div class="label">Boots: Sorcerer's, or Swifties vs Nasus</div>
-    <img class="row" src="img/b6-boots-sorc-or-swifties.png" alt="Sorcerer's Shoes or Boots of Swiftness" title="Sorcerer's Shoes or Boots of Swiftness">
+    <img class="row" src="img/b6-boots-sorc-or-swifties.webp" alt="Sorcerer's Shoes or Boots of Swiftness" title="Sorcerer's Shoes or Boots of Swiftness">
     <p>Runes: First Strike, Cash Back, Triple Tonic, Jack of All Trades, Absolute Focus, Gathering Storm. Shards: attack speed, adaptive, health scaling. Wait one second between R and W, so your W predicts less and lands more.</p>
   </div>
 </section>
