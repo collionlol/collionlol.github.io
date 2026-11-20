@@ -1,0 +1,18 @@
+# Collion: Kai'Sa & ADC coaching
+
+> Collion is a Challenger ADC and the #1 Kai'Sa one-trick on onetricks.gg. He offers 1-on-1 League of Legends ADC and Kai'Sa coaching in English, live on Discord, for 25 EUR per hour (plus an optional 15 EUR data deep-dive of your recent ranked games).
+
+## Coaching
+- How a session goes: OP.GG pattern check, pick the games that show your weaknesses, full game review backed by statistics, you summarise and get a written bullet-point summary, optional live coaching.
+- Focus: early laning phase, mid-game macro and teamfighting for ADC players. Kai'Sa players get champion-specific detail.
+- Book: join https://discord.gg/yXxABBHcGC and DM `collion`.
+
+## Guides
+- [Rank 1 Kai'Sa build guide (Season 16): all 6 builds and when to go each](https://www.youtube.com/watch?v=3JK41BjXKt8)
+- [Rank 1 Kai'Sa kiting guide: keybinds, attack move and settings](https://www.youtube.com/watch?v=FGYk4qAUy2I)
+- [The Ultimate ADC Guide](https://www.youtube.com/watch?v=lJekxSbUDzI)
+- [Builds and kiting summary](https://colliona.github.io/#builds)
+
+## Links
+- Twitch: https://twitch.tv/collionlol
+- YouTube: https://www.youtube.com/@collionlol

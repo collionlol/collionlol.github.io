@@ -3,8 +3,22 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Collion: Rank 1 Kai'Sa</title>
-<meta name="description" content="Collion's Kai'Sa builds and kiting setup in one page, his guide videos, and 1-on-1 coaching from a Challenger Kai'Sa one-trick.">
+<title>Collion | Kai'Sa &amp; ADC Coaching, Builds and Guides</title>
+<meta name="description" content="Kai'Sa and ADC coaching in English from Collion, a Challenger ADC and the #1 Kai'Sa one-trick on onetricks.gg. 1-on-1 sessions on Discord from 25 EUR/hour, plus all 6 of his Season 16 Kai'Sa builds and his kiting setup.">
+<link rel="canonical" href="https://colliona.github.io/">
+<meta name="theme-color" content="#0d0b14">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Collion">
+<meta property="og:title" content="Collion | Kai'Sa &amp; ADC Coaching, Builds and Guides">
+<meta property="og:description" content="Kai'Sa and ADC coaching in English from Collion, a Challenger ADC and the #1 Kai'Sa one-trick on onetricks.gg. 1-on-1 sessions on Discord from 25 EUR/hour, plus all 6 of his Season 16 Kai'Sa builds and his kiting setup.">
+<meta property="og:url" content="https://colliona.github.io/">
+<meta property="og:image" content="https://colliona.github.io/img/thumb-builds.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://colliona.github.io/img/thumb-builds.jpg">
+<link rel="icon" href="img/collion.webp">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Person", "@id": "https://colliona.github.io/#person", "name": "Collion", "alternateName": ["collionlol", "CollionLoL"], "url": "https://colliona.github.io/", "image": "https://colliona.github.io/img/collion.webp", "jobTitle": "League of Legends ADC coach", "description": "Challenger ADC and #1 Kai'Sa one-trick on onetricks.gg. Kai'Sa and ADC coaching in English.", "knowsAbout": ["League of Legends", "Kai'Sa", "ADC", "bot lane", "League of Legends coaching"], "sameAs": ["https://twitch.tv/collionlol", "https://www.youtube.com/@collionlol", "https://www.instagram.com/collionlol", "https://www.tiktok.com/@collionlol"]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Service", "@id": "https://colliona.github.io/#coaching", "name": "Kai'Sa and ADC coaching (League of Legends)", "serviceType": "League of Legends coaching", "provider": {"@id": "https://colliona.github.io/#person"}, "areaServed": "Worldwide", "availableLanguage": "English", "description": "1-on-1 League of Legends ADC and Kai'Sa coaching on Discord: OP.GG pattern check, full game review backed by statistics, written summary, optional live coaching.", "offers": [{"@type": "Offer", "name": "Coaching session (1 hour)", "price": "25", "priceCurrency": "EUR", "url": "https://colliona.github.io/#coaching"}, {"@type": "Offer", "name": "Data deep-dive add-on", "price": "15", "priceCurrency": "EUR", "url": "https://colliona.github.io/#coaching"}]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Who is Collion?", "acceptedAnswer": {"@type": "Answer", "text": "Collion is a Challenger ADC from Hungary who one-tricks Kai'Sa. He has held the #1 spot among Kai'Sa one-tricks on onetricks.gg, streams on Twitch (collionlol) and posts Kai'Sa gameplay and guides on YouTube (@collionlol)."}}, {"@type": "Question", "name": "Is the coaching in English?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. Sessions are in English, live on Discord, so they work from any server: EUW, EUNE, NA and others."}}, {"@type": "Question", "name": "Do I have to play Kai'Sa?", "acceptedAnswer": {"@type": "Answer", "text": "No. The coaching is about the ADC role: early laning, mid-game macro and teamfighting. Kai'Sa players get champion-specific detail on top."}}, {"@type": "Question", "name": "How much does it cost?", "acceptedAnswer": {"@type": "Answer", "text": "25 EUR per hour. The optional data deep-dive, where your recent ranked games are pulled and analysed for patterns before the session, is a flat 15 EUR extra."}}, {"@type": "Question", "name": "How do I book?", "acceptedAnswer": {"@type": "Answer", "text": "Join the Discord server at discord.gg/yXxABBHcGC and send a DM to collion."}}]}</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
 <style>
@@ -18,7 +32,8 @@
   a { color: var(--accent); }
   .wrap { max-width: 960px; margin: 0 auto; padding: 0 16px; }
   nav { position: sticky; top: 0; z-index: 5; background: rgba(13,11,20,.88); backdrop-filter: blur(8px); border-bottom: 1px solid var(--line); }
-  nav .wrap { display: flex; gap: 18px; align-items: center; height: 52px; overflow-x: auto; white-space: nowrap; }
+  nav .wrap { display: flex; gap: 18px; align-items: center; height: 52px; overflow-x: auto; white-space: nowrap; scrollbar-width: none; }
+  nav .wrap::-webkit-scrollbar { display: none; }
   nav b { margin-right: auto; letter-spacing: .02em; }
   nav a { color: var(--muted); text-decoration: none; font-size: 14px; }
   nav a:hover { color: var(--text); }
@@ -65,6 +80,25 @@
   figcaption { margin-top: 8px; font-size: 14px; color: var(--muted); }
   figcaption b { color: var(--text); }
   kbd { background: #241d31; border: 1px solid var(--line); border-bottom-width: 2px; border-radius: 5px; padding: 1px 7px; font: 600 13px Inter, sans-serif; color: var(--text); }
+  .navcta { margin-left: 6px; padding: 7px 12px; color: #fff !important; }
+  .hero { display: grid; grid-template-columns: 1.4fr 1fr; gap: 24px; align-items: center; }
+  .eyebrow { margin: 0 0 10px; color: var(--accent); font-weight: 600; font-size: 13px; letter-spacing: .1em; text-transform: uppercase; }
+  .btn.big { padding: 13px 20px; font-size: 15px; }
+  .anchor { margin: 12px 0 0; color: var(--muted); font-size: 14px; }
+  .socials { display: flex; flex-wrap: wrap; gap: 6px 16px; margin-top: 22px; }
+  .socials a { color: var(--muted); font-size: 14px; text-decoration: none; }
+  .socials a:hover { color: var(--text); }
+  .hero-photo { justify-self: center; width: min(320px, 100%); aspect-ratio: 1; border-radius: 50%; overflow: hidden;
+    background: radial-gradient(circle at 50% 40%, #3b1a5c, #1a1226 70%); border: 1px solid #4a2d6b;
+    box-shadow: 0 0 0 10px rgba(193,75,255,.06), 0 0 60px rgba(193,75,255,.25); }
+  .hero-photo img { width: 135%; height: auto; display: block; margin: 7% 0 0 -50%; }
+  details { background: var(--panel); border: 1px solid var(--line); border-radius: 10px; margin-bottom: 8px; }
+  summary { cursor: pointer; padding: 14px 16px; font-weight: 600; list-style: none; display: flex; justify-content: space-between; gap: 12px; }
+  summary::-webkit-details-marker { display: none; }
+  summary::after { content: "+"; color: var(--accent); font-weight: 800; }
+  details[open] summary::after { content: "\2013"; }
+  details p { margin: 0; padding: 0 16px 14px; color: var(--muted); }
+  @media (max-width: 720px) { .hero { grid-template-columns: 1fr; } .hero-photo { order: -1; width: 180px; } .navcta { display: none; } }
   footer { padding: 32px 0 48px; color: var(--muted); font-size: 13px; border-top: 1px solid var(--line); }
   @media (max-width: 520px) { .row { height: 38px; } header { padding-top: 40px; } }
 </style>
@@ -76,19 +110,29 @@
   <a href="#kiting">Kiting</a>
   <a href="#videos">Guides</a>
   <a href="#coaching">Coaching</a>
+  <a href="#faq">FAQ</a>
+  <a class="btn primary navcta" href="#coaching">Book coaching</a>
 </div></nav>
 
-<header><div class="wrap">
-  <h1>Rank 1 <span>Kai'Sa</span> one-trick</h1>
-  <p class="lede">Challenger ADC and the world's #1 Kai'Sa one-trick on onetricks.gg. Every build I use and my kiting setup, in short form. The full guides are below. Want help with your own games? I coach.</p>
-  <div class="btns">
-    <a class="btn primary" href="#coaching">Get coached</a>
-    <a class="btn" href="https://twitch.tv/collionlol" target="_blank" rel="noopener">Twitch</a>
-    <a class="btn" href="https://www.youtube.com/@collionlol" target="_blank" rel="noopener">YouTube</a>
-    <a class="btn" href="https://www.instagram.com/collionlol" target="_blank" rel="noopener">Instagram</a>
-    <a class="btn" href="https://www.tiktok.com/@collionlol" target="_blank" rel="noopener">TikTok</a>
-    <a class="btn" href="https://discord.gg/yXxABBHcGC" target="_blank" rel="noopener">Discord</a>
+<header><div class="wrap hero">
+  <div class="hero-text">
+    <p class="eyebrow">Kai'Sa &amp; ADC coaching · English</p>
+    <h1>Rank 1 <span>Kai'Sa</span> one&#8209;trick</h1>
+    <p class="lede">Challenger ADC and the #1 Kai'Sa one-trick on onetricks.gg. Below: every build I use and my kiting setup in short form, my full guides, and 1-on-1 coaching if you want help with your own games.</p>
+    <div class="btns">
+      <a class="btn primary big" href="#coaching">Book coaching</a>
+      <a class="btn big" href="#builds">See the builds</a>
+    </div>
+    <p class="anchor">From 25 € / hour · live on Discord</p>
+    <div class="socials">
+      <a href="https://twitch.tv/collionlol" target="_blank" rel="noopener">Twitch</a>
+      <a href="https://www.youtube.com/@collionlol" target="_blank" rel="noopener">YouTube</a>
+      <a href="https://www.instagram.com/collionlol" target="_blank" rel="noopener">Instagram</a>
+      <a href="https://www.tiktok.com/@collionlol" target="_blank" rel="noopener">TikTok</a>
+      <a href="https://discord.gg/yXxABBHcGC" target="_blank" rel="noopener">Discord</a>
+    </div>
   </div>
+  <div class="hero-photo"><img src="img/collion.webp" alt="Collion" width="520" height="617"></div>
 </div></header>
 
 <main class="wrap">
@@ -217,6 +261,16 @@
       <p style="margin-top:12px"><a class="btn primary" href="https://discord.gg/yXxABBHcGC" target="_blank" rel="noopener">Join the Discord</a></p>
     </div>
   </div>
+</section>
+
+<section id="faq">
+  <h2>FAQ</h2>
+  <p class="sub">The short answers.</p>
+  <details><summary>Who is Collion?</summary><p>Collion is a Challenger ADC from Hungary who one-tricks Kai'Sa. He has held the #1 spot among Kai'Sa one-tricks on onetricks.gg, streams on Twitch (collionlol) and posts Kai'Sa gameplay and guides on YouTube (@collionlol).</p></details>
+  <details><summary>Is the coaching in English?</summary><p>Yes. Sessions are in English, live on Discord, so they work from any server: EUW, EUNE, NA and others.</p></details>
+  <details><summary>Do I have to play Kai'Sa?</summary><p>No. The coaching is about the ADC role: early laning, mid-game macro and teamfighting. Kai'Sa players get champion-specific detail on top.</p></details>
+  <details><summary>How much does it cost?</summary><p>25 EUR per hour. The optional data deep-dive, where your recent ranked games are pulled and analysed for patterns before the session, is a flat 15 EUR extra.</p></details>
+  <details><summary>How do I book?</summary><p>Join the Discord server at discord.gg/yXxABBHcGC and send a DM to collion.</p></details>
 </section>
 
 </main>
