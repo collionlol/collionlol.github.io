@@ -68,6 +68,13 @@
   ol.tldr li::marker { color: var(--accent); font-weight: 800; }
   .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 14px; }
   .card.best { position: relative; border-color: var(--accent); }
+  .grid .card.pick { display: flex; flex-direction: column; cursor: pointer; transition: border-color .15s, transform .15s, background .15s; }
+  .grid .card.pick:hover, .grid .card.pick:focus-visible { border-color: var(--accent); background: #1d1730; transform: translateY(-2px); outline: none; }
+  .card .choose { margin-top: auto; padding-top: 12px; font-size: 14px; font-weight: 600; color: var(--accent); }
+  .addon.pick { cursor: pointer; border-radius: 8px; padding: 6px 8px; margin-left: -8px; margin-right: -8px; transition: background .15s; }
+  .addon.pick:hover, .addon.pick:focus-visible { background: rgba(193,75,255,.14); outline: none; }
+  .addon .arrow { color: var(--accent); }
+  .apply select.flash { border-color: var(--accent); box-shadow: 0 0 0 3px rgba(193,75,255,.35); transition: box-shadow .6s; }
   .card .tag { position: absolute; top: -11px; right: 16px; background: linear-gradient(90deg, var(--accent), var(--accent2)); color: #fff; font-size: 12px; font-weight: 700; padding: 3px 10px; border-radius: 999px; }
   .addon { margin: 10px 0 0; font-size: 14px; color: var(--muted); } .addon b { color: var(--text); }
   .save { white-space: nowrap; font-size: 13px; color: #6ee7a8; margin-left: 6px; font-weight: 600; }
@@ -240,22 +247,25 @@
   </ol>
   <p class="sub">The focus is what matters most for an ADC: early laning, mid-game macro and teamfighting.</p>
   <div class="grid">
-    <div class="card">
+    <div class="card pick" data-pkg="1 hour (40 EUR)" role="button" tabindex="0" aria-label="Choose: 1 hour coaching session, 40 euro">
       <h3>Coaching session</h3>
       <p class="when" style="margin:6px 0 0">40 € / hour</p>
       <p>Live 1-on-1 on Discord: your games, your lane, what is actually costing you LP.</p>
+      <span class="choose">Choose →</span>
     </div>
-    <div class="card best">
+    <div class="card best pick" data-pkg="3-hour bundle (100 EUR)" role="button" tabindex="0" aria-label="Choose: 3-hour bundle, 100 euro">
       <span class="tag">Best value</span>
       <h3>3-hour bundle</h3>
       <p class="when" style="margin:6px 0 0">100 € <span class="save">save 20 €</span></p>
       <p>Three hours you can split over several sessions, so we fix one thing, you play on it, and we check it worked.</p>
-      <p class="addon">With the data deep-dive: <b>110 €</b> <span class="save">save 30 €</span></p>
+      <p class="addon pick" data-pkg="3-hour bundle + deep-dive (110 EUR)" role="button" tabindex="0" aria-label="Choose: 3-hour bundle with data deep-dive, 110 euro">With the data deep-dive: <b>110 €</b> <span class="save">save 30 €</span> <span class="arrow">→</span></p>
+      <span class="choose">Choose →</span>
     </div>
-    <div class="card">
+    <div class="card pick" data-pkg="1 hour + deep-dive (60 EUR)" role="button" tabindex="0" aria-label="Choose: 1 hour with data deep-dive, 60 euro">
       <h3>+ Data deep-dive</h3>
       <p class="when" style="margin:6px 0 0">+20 € · only +10 € in the bundle</p>
       <p>Before we talk, I pull your recent solo-queue games and run them through my analysis pipeline to find the patterns. The session then goes straight at what matters, and you get a written plan.</p>
+      <span class="choose">Add to 1 hour →</span>
     </div>
   </div>
 
@@ -448,6 +458,23 @@ document.querySelectorAll('.lite').forEach(function (b) {
     });
   });
   d.addEventListener('click', function () { d.close(); });
+})();
+</script>
+<script>
+(function () {
+  // price cards: pick the package in the application form and scroll to it
+  var sel = document.querySelector('#applyform select[name=package]'); if (!sel) return;
+  function pick(el, e) {
+    e.stopPropagation(); e.preventDefault();
+    sel.value = el.getAttribute('data-pkg');
+    document.getElementById('apply').scrollIntoView({ behavior: 'smooth', block: 'start' });
+    sel.classList.add('flash'); setTimeout(function () { sel.classList.remove('flash'); }, 1400);
+    setTimeout(function () { var d = document.querySelector('#applyform input[name=discord]'); if (d) d.focus({ preventScroll: true }); }, 600);
+  }
+  document.querySelectorAll('.pick[data-pkg]').forEach(function (el) {
+    el.addEventListener('click', function (e) { pick(el, e); });
+    el.addEventListener('keydown', function (e) { if (e.key === 'Enter' || e.key === ' ') pick(el, e); });
+  });
 })();
 </script>
 </body>
