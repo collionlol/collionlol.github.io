@@ -11,7 +11,7 @@
 - [Rank 1 Kai'Sa build guide (Season 16): all 6 builds and when to go each](https://www.youtube.com/watch?v=3JK41BjXKt8)
 - [Rank 1 Kai'Sa kiting guide: keybinds, attack move and settings](https://www.youtube.com/watch?v=FGYk4qAUy2I)
 - [The Ultimate ADC Guide](https://www.youtube.com/watch?v=lJekxSbUDzI)
-- [Builds and kiting summary](https://colliona.github.io/#builds)
+- [Builds and kiting summary](https://collionlol.github.io/#builds)
 
 ## Links
 - Twitch: https://twitch.tv/collionlol

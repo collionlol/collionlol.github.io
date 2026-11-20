@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://colliona.github.io/sitemap.xml
+Sitemap: https://collionlol.github.io/sitemap.xml
