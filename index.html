@@ -68,13 +68,6 @@
   ol.tldr li::marker { color: var(--accent); font-weight: 800; }
   .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 14px; }
   .card.best { position: relative; border-color: var(--accent); }
-  .grid .card.pick { display: flex; flex-direction: column; cursor: pointer; transition: border-color .15s, transform .15s, background .15s; }
-  .grid .card.pick:hover, .grid .card.pick:focus-visible { border-color: var(--accent); background: #1d1730; transform: translateY(-2px); outline: none; }
-  .card .choose { margin-top: auto; padding-top: 12px; font-size: 14px; font-weight: 600; color: var(--accent); }
-  .addon.pick { cursor: pointer; border-radius: 8px; padding: 6px 8px; margin-left: -8px; margin-right: -8px; transition: background .15s; }
-  .addon.pick:hover, .addon.pick:focus-visible { background: rgba(193,75,255,.14); outline: none; }
-  .addon .arrow { color: var(--accent); }
-  .apply select.flash { border-color: var(--accent); box-shadow: 0 0 0 3px rgba(193,75,255,.35); transition: box-shadow .6s; }
   .card .tag { position: absolute; top: -11px; right: 16px; background: linear-gradient(90deg, var(--accent), var(--accent2)); color: #fff; font-size: 12px; font-weight: 700; padding: 3px 10px; border-radius: 999px; }
   .addon { margin: 10px 0 0; font-size: 14px; color: var(--muted); } .addon b { color: var(--text); }
   .save { white-space: nowrap; font-size: 13px; color: #6ee7a8; margin-left: 6px; font-weight: 600; }
@@ -159,6 +152,31 @@
   section.cta .btns { justify-content: center; }
   .about { color: var(--muted); font-size: 17px; max-width: 720px; margin: 8px 0 28px; }
   .minihead { font-size: 13px; text-transform: uppercase; letter-spacing: .1em; color: var(--accent); margin: 0 0 4px; }
+  /* package selector: radio cards + deep-dive toggle + live breakdown */
+  .pkgs .opt { position: relative; display: flex; flex-direction: column; cursor: pointer; transition: border-color .15s, background .15s; }
+  .pkgs .opt input { position: absolute; opacity: 0; pointer-events: none; }
+  .pkgs .opt:hover { border-color: #6b3fa0; }
+  .pkgs .opt:has(input:checked) { border-color: var(--accent); background: #1f1733; box-shadow: 0 0 0 1px var(--accent) inset; }
+  .pkgs .opt:has(input:focus-visible) { outline: 2px solid var(--accent); outline-offset: 2px; }
+  .pkgs .choose { margin-top: auto; padding-top: 12px; display: flex; align-items: center; gap: 8px; font-size: 14px; font-weight: 600; color: var(--muted); }
+  .pkgs .choose .on { display: none; }
+  .pkgs .opt:has(input:checked) .choose { color: var(--accent); }
+  .pkgs .opt:has(input:checked) .choose .on { display: inline; }
+  .pkgs .opt:has(input:checked) .choose .off { display: none; }
+  .pkgs .dot, .pkgs .tick { width: 18px; height: 18px; border: 2px solid currentColor; display: inline-grid; place-items: center; flex: none; font-style: normal; }
+  .pkgs .dot { border-radius: 50%; }
+  .pkgs .tick { border-radius: 5px; }
+  .pkgs .tick::before { content: "+"; font-size: 15px; line-height: 1; }
+  .pkgs .opt:has(input:checked) .dot::before { content: ""; width: 8px; height: 8px; border-radius: 50%; background: currentColor; }
+  .pkgs .opt:has(input:checked) .tick { background: var(--accent); border-color: var(--accent); color: #fff; }
+  .pkgs .opt:has(input:checked) .tick::before { content: "\2713"; font-size: 12px; }
+  .breakdown { background: var(--panel); border: 1px solid var(--line); border-radius: 14px; padding: 14px 20px; margin: 0 0 14px; }
+  .breakdown .bl { display: flex; justify-content: space-between; gap: 12px; padding: 5px 0; color: var(--muted); font-size: 15px; }
+  .breakdown .bl.total { border-top: 1px solid var(--line); margin-top: 6px; padding-top: 10px; color: var(--text); font-size: 17px; }
+  .breakdown .bnote { margin: 8px 0 0; font-size: 13px; color: var(--muted); }
+  .pkgline { margin: 0; font-size: 14px; color: var(--muted); }
+  .pkgline b { color: var(--text); }
+  .pkgline span { font-size: 13px; }
   .eyebrow { margin: 0 0 10px; color: var(--accent); font-weight: 600; font-size: 13px; letter-spacing: .1em; text-transform: uppercase; }
   .btn.big { padding: 13px 20px; font-size: 15px; }
   .anchor { margin: 12px 0 0; color: var(--muted); font-size: 14px; }
@@ -246,27 +264,36 @@
     <li><b>Live coaching (optional).</b> We put the theory into practice in a real game.</li>
   </ol>
   <p class="sub">The focus is what matters most for an ADC: early laning, mid-game macro and teamfighting.</p>
-  <div class="grid">
-    <div class="card pick" data-pkg="1 hour (40 EUR)" role="button" tabindex="0" aria-label="Choose: 1 hour coaching session, 40 euro">
+  <div class="grid pkgs" role="group" aria-label="Pick your coaching package">
+    <label class="card opt">
+      <input type="radio" name="pkgsize" value="1" checked>
       <h3>Coaching session</h3>
       <p class="when" style="margin:6px 0 0">40 € / hour</p>
       <p>Live 1-on-1 on Discord: your games, your lane, what is actually costing you LP.</p>
-      <span class="choose">Choose →</span>
-    </div>
-    <div class="card best pick" data-pkg="3-hour bundle (100 EUR)" role="button" tabindex="0" aria-label="Choose: 3-hour bundle, 100 euro">
+      <span class="choose"><i class="dot"></i><span class="off">Select</span><span class="on">Selected</span></span>
+    </label>
+    <label class="card opt best">
+      <input type="radio" name="pkgsize" value="3">
       <span class="tag">Best value</span>
       <h3>3-hour bundle</h3>
       <p class="when" style="margin:6px 0 0">100 € <span class="save">save 20 €</span></p>
       <p>Three hours you can split over several sessions, so we fix one thing, you play on it, and we check it worked.</p>
-      <p class="addon pick" data-pkg="3-hour bundle + deep-dive (110 EUR)" role="button" tabindex="0" aria-label="Choose: 3-hour bundle with data deep-dive, 110 euro">With the data deep-dive: <b>110 €</b> <span class="save">save 30 €</span> <span class="arrow">→</span></p>
-      <span class="choose">Choose →</span>
-    </div>
-    <div class="card pick" data-pkg="1 hour + deep-dive (60 EUR)" role="button" tabindex="0" aria-label="Choose: 1 hour with data deep-dive, 60 euro">
+      <span class="choose"><i class="dot"></i><span class="off">Select</span><span class="on">Selected</span></span>
+    </label>
+    <label class="card opt dd">
+      <input type="checkbox" name="pkgdd">
       <h3>+ Data deep-dive</h3>
-      <p class="when" style="margin:6px 0 0">+20 € · only +10 € in the bundle</p>
+      <p class="when" style="margin:6px 0 0">+20 € · only +10 € with the bundle</p>
       <p>Before we talk, I pull your recent solo-queue games and run them through my analysis pipeline to find the patterns. The session then goes straight at what matters, and you get a written plan.</p>
-      <span class="choose">Add to 1 hour →</span>
-    </div>
+      <span class="choose"><i class="tick"></i><span class="off">Add it</span><span class="on">Added</span></span>
+    </label>
+  </div>
+  <div class="breakdown" aria-live="polite">
+    <div class="bl"><span id="bd-main">Coaching session (1 hour)</span><span id="bd-main-p">40 €</span></div>
+    <div class="bl" id="bd-dd-row" hidden><span>Data deep-dive</span><span id="bd-dd-p">+20 €</span></div>
+    <div class="bl total"><span>Total</span><span><span id="bd-save" class="save"></span> <b id="bd-total">40 €</b></span></div>
+    <p class="bnote">Nothing is paid until we've talked on Discord.</p>
+  </div>
   </div>
 
   <div class="card apply" id="apply">
@@ -281,14 +308,12 @@
         <label>Current rank<select name="rank">
           <option value="">Pick one</option><option>Iron</option><option>Bronze</option><option>Silver</option><option>Gold</option>
           <option>Platinum</option><option>Emerald</option><option>Diamond</option><option>Master+</option></select></label>
-        <label>Package<select name="package">
-          <option value="1 hour (40 EUR)">1 hour · 40 €</option><option value="1 hour + deep-dive (60 EUR)">1 hour + data deep-dive · 60 €</option><option value="3-hour bundle (100 EUR)">3 hours · 100 €</option><option value="3-hour bundle + deep-dive (110 EUR)">3 hours + data deep-dive · 110 € (best value)</option><option value="Not sure yet">Not sure yet</option></select></label>
-      </div>
-      <div class="frow">
         <label>Main champ or role<input name="champ" maxlength="80" placeholder="Kai'Sa / ADC"></label>
       </div>
+      <input type="hidden" name="package" value="1 hour (40 EUR)">
       <label>What do you want to fix?<textarea name="goal" maxlength="1000" rows="3" placeholder="e.g. I win lane but lose the game, I die in every teamfight..."></textarea></label>
       <input class="hp" name="website" tabindex="-1" autocomplete="off" aria-hidden="true">
+      <p class="pkgline">Package: <b id="pkgline">Coaching session (1 hour) · 40 €</b> <span>(change it above)</span></p>
       <button class="btn primary big" type="submit">Apply</button>
       <p class="formmsg" role="status" aria-live="polite"></p>
     </form>
@@ -462,19 +487,23 @@ document.querySelectorAll('.lite').forEach(function (b) {
 </script>
 <script>
 (function () {
-  // price cards: pick the package in the application form and scroll to it
-  var sel = document.querySelector('#applyform select[name=package]'); if (!sel) return;
-  function pick(el, e) {
-    e.stopPropagation(); e.preventDefault();
-    sel.value = el.getAttribute('data-pkg');
-    document.getElementById('apply').scrollIntoView({ behavior: 'smooth', block: 'start' });
-    sel.classList.add('flash'); setTimeout(function () { sel.classList.remove('flash'); }, 1400);
-    setTimeout(function () { var d = document.querySelector('#applyform input[name=discord]'); if (d) d.focus({ preventScroll: true }); }, 600);
+  // package selector -> live price breakdown -> hidden "package" field the form sends. No scrolling.
+  var f = document.getElementById('applyform'); if (!f) return;
+  var dd = document.querySelector('input[name=pkgdd]');
+  function el(id) { return document.getElementById(id); }
+  function update() {
+    var three = document.querySelector('input[name=pkgsize]:checked').value === '3', add = dd.checked;
+    var base = three ? 100 : 40, ddp = add ? (three ? 10 : 20) : 0, total = base + ddp;
+    var full = (three ? 120 : 40) + (add ? 20 : 0), save = full - total;
+    var name = three ? '3-hour bundle' : 'Coaching session (1 hour)';
+    el('bd-main').textContent = name; el('bd-main-p').textContent = base + ' \u20ac';
+    el('bd-dd-row').hidden = !add; el('bd-dd-p').textContent = '+' + ddp + ' \u20ac';
+    el('bd-total').textContent = total + ' \u20ac'; el('bd-save').textContent = save ? 'save ' + save + ' \u20ac' : '';
+    f.package.value = (three ? '3-hour bundle' : '1 hour') + (add ? ' + deep-dive' : '') + ' (' + total + ' EUR)';
+    el('pkgline').textContent = name + (add ? ' + data deep-dive' : '') + ' \u00b7 ' + total + ' \u20ac';
   }
-  document.querySelectorAll('.pick[data-pkg]').forEach(function (el) {
-    el.addEventListener('click', function (e) { pick(el, e); });
-    el.addEventListener('keydown', function (e) { if (e.key === 'Enter' || e.key === ' ') pick(el, e); });
-  });
+  document.querySelectorAll('input[name=pkgsize]').forEach(function (r) { r.addEventListener('change', update); });
+  dd.addEventListener('change', update); update();
 })();
 </script>
 </body>
