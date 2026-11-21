@@ -247,11 +247,29 @@
   @media (max-width: 600px) { .proofgrid { grid-template-columns: 1fr 1fr; gap: 8px; } .proofgrid .shot:first-child { grid-column: 1 / -1; } .shot span { padding: 8px 10px; font-size: 12px; } }
   footer { padding: 32px 0 48px; color: var(--muted); font-size: 13px; border-top: 1px solid var(--line); }
   @media (max-width: 520px) { .row { height: 38px; } header { padding-top: 40px; } }
+  /* student reviews: the climb line is the headline of each card */
+  /* two explicit columns on desktop (left: RRAVEN, babynuke, jayce / right: EXODIA, anon, Voider) so the strongest
+     climbs sit at the top of BOTH columns; on phones the columns dissolve and order: gives 1..6 */
+  .reviews { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; align-items: start; }
+  .rcol { display: flex; flex-direction: column; gap: 14px; }
+  @media (max-width: 720px) { .reviews { display: flex; flex-direction: column; } .rcol { display: contents; } }
+  .review { margin: 0; display: flex; flex-direction: column; gap: 12px; }
+  .climb { display: flex; flex-wrap: wrap; align-items: center; gap: 6px 8px; font-weight: 800; font-size: 16px; }
+  .climb .to { color: var(--muted); font-weight: 400; }
+  .climb .time { flex-basis: 100%; font-size: 13px; font-weight: 600; color: var(--muted); }
+  .rk { --c: var(--text); color: var(--c); background: color-mix(in srgb, var(--c) 12%, transparent); border: 1px solid color-mix(in srgb, var(--c) 40%, transparent); border-radius: 8px; padding: 2px 9px; white-space: nowrap; }
+  .rk.silver { --c: #c3ccd6; } .rk.gold { --c: #f2b84b; } .rk.plat { --c: #4fd8c8; } .rk.emerald { --c: #3ddc97; } .rk.diamond { --c: #82a8ff; } .rk.master { --c: #d58bff; }
+  .review blockquote { margin: 0; color: var(--muted); font-size: 15px; }
+  .review blockquote p { margin: 0 0 8px; color: inherit; font-size: inherit; } .review blockquote p:last-child { margin: 0; }
+  .review blockquote b { color: var(--text); font-weight: 600; }
+  .review figcaption { margin: 0; padding-top: 10px; border-top: 1px solid var(--line); font-size: 14px; }
+  .review figcaption .tagline { color: var(--muted); }
 </style>
 </head>
 <body>
 <nav><div class="wrap">
   <b>Collion</b>
+  <a class="hide-sm" href="#reviews">Reviews</a>
   <a class="hide-sm" href="#coaching">Coaching</a>
   <a href="#builds">Builds</a>
   <a class="hide-sm" href="#kiting">Kiting</a>
@@ -302,6 +320,47 @@
   </div>
   <div class="liverank"><a class="btn" href="https://dpm.lol/u/CollionLoL" target="_blank" rel="noopener">See my live rank on dpm.lol →</a><span>Every account, today's LP. Screenshots show the peaks; this shows right now.</span></div>
   <p class="sub" style="margin:14px 0 0">Also 2nd at the 2014 Hungarian LoL Nationals, 512 teams (<a href="https://lol.fandom.com/wiki/Collion" target="_blank" rel="noopener">Leaguepedia</a>).</p>
+</section>
+
+<section id="reviews">
+  <h2>What students say</h2>
+  <p class="sub">In their own words. Ranks are the ones they reported, before coaching and now.</p>
+  <div class="reviews">
+   <div class="rcol">
+    <figure class="card review" style="order:1">
+      <div class="climb"><span class="rk plat">Platinum 2</span><span class="to">→</span><span class="rk diamond">Diamond 4</span><span class="to">→</span><span class="rk master">Master 100 LP</span><span class="time">about a year, from 2 sessions months apart</span></div>
+      <blockquote><p>I vividly remember he once told me to <b>"stop giving my homeless Shen the mid wave"</b> and that I should take it myself. He pointed out that I need to stop making emotional decisions and fearing that what I do will hurt or tilt my teammates, and that I should start doing what I think is right and play more selfishly as ADC. This was definitely something I needed to hear. It improved my mindset insanely and I was able to focus a lot more on what actually mattered in my games.</p><p>Collion always kept the coaching sessions super real and direct, and I needed to hear exactly this, this way and from him, in order to improve my gameplay. He was also really good at showing me visually where I should position myself in teamfights and what ranges the enemy abilities have that can kill me, which <b>improved my teamfighting massively.</b></p></blockquote>
+      <figcaption><b>RRAVEN#adi</b> <span class="tagline">· EUNE</span></figcaption>
+    </figure>
+    <figure class="card review" style="order:4">
+      <div class="climb"><span class="rk gold">Gold 3</span><span class="to">→</span><span class="rk plat">Platinum 4</span><span class="time">in about 6 weeks</span></div>
+      <blockquote><p>Collion is a great coach. He helped me with <b>laning phase wave management, how to build Kai'Sa in different situations, how to ignore your team and play for yourself</b>, and when to go into teamfights and how to DPS quickly.</p></blockquote>
+      <figcaption><b>babynuke#NA1</b> <span class="tagline">· NA</span></figcaption>
+    </figure>
+    <figure class="card review" style="order:6">
+      <div class="climb"><span class="rk gold">Gold 3</span><span class="to">→</span><span class="rk plat">Platinum 4</span></div>
+      <blockquote><p>I <b>focused more on my own gameplay, farmed better and tilted less often.</b></p></blockquote>
+      <figcaption><b>jayce#PEACH</b> <span class="tagline">· EUNE</span></figcaption>
+    </figure>
+   </div>
+   <div class="rcol">
+    <figure class="card review" style="order:2">
+      <div class="climb"><span class="rk emerald">Emerald 4</span><span class="to">→</span><span class="rk diamond">Diamond 4</span><span class="time">in one month</span></div>
+      <blockquote><p>Collion's coaching definitely made me improve on my mistakes. <b>He pointed out my jungle tracking gaps and teamfights.</b> He really helped me out as well on how to take fights with Kai'Sa.</p><p>Overall great coach, listening to you and not rude at all. I definitely recommend Collion.</p></blockquote>
+      <figcaption><b>EXODIA KAISA#EUW7</b> <span class="tagline">· EUW</span></figcaption>
+    </figure>
+    <figure class="card review" style="order:3">
+      <div class="climb"><span class="rk silver">Silver 4</span><span class="to">→</span><span class="rk gold">Gold 2</span></div>
+      <blockquote><p><b>The guy with the most knowledge I've ever seen on Kai'Sa</b>, and he was able to transfer his knowledge pretty easily, through thorough explanations and even training mode exercises. Very patient guy that doesn't mind re-explaining something so that it really enters the mind of the student.</p><p>Really passionate about the game and coaching, doesn't just do it for money: he will make the lessons longer if we haven't finished talking about a subject.</p></blockquote>
+      <figcaption><b>Anonymous student</b> <span class="tagline">· EUW</span></figcaption>
+    </figure>
+    <figure class="card review" style="order:5">
+      <div class="climb"><span class="rk emerald">Emerald 3</span><span class="to">→</span><span class="rk emerald">Emerald 1</span><span class="time">after being hardstuck, now close to Diamond</span></div>
+      <blockquote><p>Coaching helped me understand that <b>my early game was problematic</b>, as well as some positioning mistakes and teamfight concepts. Collion really cares about being thorough and explaining why and how things work, which is ideal, especially for someone with little experience in the game.</p><p>Big thanks to Collion for helping and being patient enough to see my errors again and again and help me correct them!</p></blockquote>
+      <figcaption><b>Voider#GRE</b> <span class="tagline">· EUNE</span></figcaption>
+    </figure>
+   </div>
+  </div>
 </section>
 
 <section id="coaching" class="art art-kda">

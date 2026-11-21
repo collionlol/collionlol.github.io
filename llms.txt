@@ -8,6 +8,15 @@
 - Focus: early laning phase, mid-game macro and teamfighting for ADC players. Kai'Sa players get champion-specific detail.
 - Book: apply at https://collionlol.github.io/#apply (Discord name, OP.GG, what to fix; he DMs you on Discord, nothing paid until you have talked), or join https://discord.gg/yXxABBHcGC and DM `collion`.
 
+## Student results (self-reported, November 2026)
+- Emerald 4 to Diamond 4 in one month: jungle tracking gaps, teamfights, how to take fights with Kai'Sa.
+- Platinum 2 to Diamond 4 to Master 100 LP over about a year, from two sessions: stop making emotional decisions, play more selfishly as ADC, teamfight positioning against enemy ability ranges.
+- Gold 3 to Platinum 4 in about 6 weeks: laning wave management, situational Kai'Sa builds, playing for yourself, when to enter teamfights.
+- Emerald 3 (hardstuck) to Emerald 1: early game, positioning and teamfight concepts.
+- Silver 4 to Gold 2: Kai'Sa knowledge, training mode exercises, patient re-explaining.
+- Gold 3 to Platinum 4: focusing on own gameplay, farming, tilting less.
+- Full reviews: https://collionlol.github.io/#reviews
+
 ## Guides
 - [Rank 1 Kai'Sa build guide (Season 16): all 6 builds and when to go each](https://www.youtube.com/watch?v=3JK41BjXKt8)
 - [Rank 1 Kai'Sa kiting guide: keybinds, attack move and settings](https://www.youtube.com/watch?v=FGYk4qAUy2I)
