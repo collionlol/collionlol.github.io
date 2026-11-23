@@ -1,6 +1,6 @@
 # Collion: Kai'Sa & ADC coaching
 
-> Collion is one of only two Challenger Kai'Sa one-tricks: peak #2 Kai'Sa worldwide, #1 Kai'Sa in the minor regions and #1 Kai'Sa one-trick in KR, EUW and NA on onetricks.gg (November 2026). He offers 1-on-1 League of Legends ADC and Kai'Sa coaching in English, live on Discord, for 40 EUR per hour or 100 EUR for a 3-hour bundle (plus an optional data deep-dive of your recent ranked games: 20 EUR on a single hour, or 110 EUR for the 3-hour bundle with the deep-dive included).
+> Collion is one of only two Challenger Kai'Sa one-tricks: peak #2 Kai'Sa worldwide on League of Graphs, #1 Kai'Sa in the minor regions and #1 Kai'Sa one-trick in KR, EUW and NA on onetricks.gg (November 2026). He offers 1-on-1 League of Legends ADC and Kai'Sa coaching in English, live on Discord, for 40 EUR per hour or 100 EUR for a 3-hour bundle (plus an optional data deep-dive of your recent ranked games: 20 EUR on a single hour, or 110 EUR for the 3-hour bundle with the deep-dive included).
 
 ## Coaching
 - Coach: Challenger ADC from Hungary with a BSc and an MSc in Computer Science; the data deep-dive runs your ranked games through his own analysis pipeline. 2nd at the 2014 Hungarian LoL Nationals (512 teams).
